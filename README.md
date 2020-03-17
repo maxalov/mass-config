@@ -1,8 +1,8 @@
 # Tool to config network equipment
-Using this utility, you can send commands like `{conf} {show}` directly to list of devices.
+Using this utility, you can send commands like `{conf}` or `{show}` directly to the list of devices.
 
 # inventory:
-Here is a list of devices in dictionary format:
+Here is the list of devices in dictionary format:
 ```
 brocade_vdx = {
     "device_type": "brocade_vdx",
@@ -15,16 +15,11 @@ juniper_mx = {
     "port": 22,
 }
 ```
-The script supports connecting to almost any network equipment:
+This script works with network equipment of almost any vendor: 
 `cisco_nxos`, `cisco_asa`, `cisco_ios`, `juniper_junos`, `brocade_vdx`, `huawei`, etc 
 
 # commands:
-After running the script, the user will need to choose what type of commands
-it will transmit to the device - `conf` or` show`. This is because the transmission
-from the point of view of the code, these commands look a little different, as well as for security,
-these commands are in different `conf.txt` and` show.txt` files, respectively.
-You can send any number of commands for both conf and show, the result of the commands
-and the commands themselves will be output to the standard stream.
+After running the script user will need to specify the type of commands that will be transmitted to devices - either conf or show. Since the code for these two commands differs from each other - they are located in separate files `conf.txt` and `show.txt` respectively (also it is done for some security purposes). You can send any number of commands for both conf and show. The result of the commands and the commands themselves will be displayed to the standard stream.
 
 # examples:
 
