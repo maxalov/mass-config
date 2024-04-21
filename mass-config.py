@@ -36,6 +36,10 @@ def connect(device, commands):
                     command = ssh.send_config_set(commands, exit_config_mode=False)
                     commit = ssh.commit(and_quit=True)
                     output = (command + commit)
+                elif device['device_type'] == 'cisco_s300':
+                    command = ssh.send_config_set(commands)
+                    save = ssh.save_config()
+                    output = (command + save)
                 else:
                     output = ssh.send_config_set(commands)
             else:
