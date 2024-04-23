@@ -1,7 +1,12 @@
 # Tool to config network equipment
-Using this utility, you can send commands like `{conf}` or `{show}` directly to the list of devices.
+**This script is designed to handle routine tasks across a multitude of network devices, such as:**
 
-# inventory:
+* [x] Bulk addition or modification of identical parameters, for example: `set system syslog host {ip}`, `set system radius-server {ip}`, `set system ntp server {ip}`, etc.
+* [x] Removal of outdated configuration lines like `delete protocol lldp`, `set schedulers scheduler {name}`, `set system ports auxiliary disable`, etc.
+* [x] Data collection, such as: `show system uptime`, `show bgp summary`, `show ethernet-switching table`, etc.
+
+
+# Inventory:
 Here is the list of devices in dictionary format:
 ```
 brocade_vdx = {
@@ -18,12 +23,11 @@ juniper_mx = {
 This script works with network equipment of almost any vendor: 
 `cisco_nxos`, `cisco_asa`, `cisco_ios`, `juniper_junos`, `brocade_vdx`, `huawei`, etc 
 
-# commands:
-After running the script user will need to specify the type of commands that will be transmitted to devices - either conf or show. Since the code for these two commands differs from each other - they are located in separate files `conf.txt` and `show.txt` respectively (also it is done for some security purposes). You can send any number of commands for both conf and show. The result of the commands and the commands themselves will be displayed to the standard stream.
+# Commands:
+**For security purposes, the script's logic and the commands it executes are divided into two types: configurational and operational. Each time the script is run, a dialog box will prompt you to confirm the type of commands to execute.
+Since the code for these two commands differs from each other - they are located in separate files `conf.txt` and `show.txt`. You can send any number of commands for both conf and show. The result of the commands and the commands themselves will be displayed to the standard stream.**
 
-# examples:
-
-# show command
+**show command example:**
 ```
 Please select which type of commands you want to execute:
 
@@ -77,7 +81,7 @@ Rbridge-Id       WWN                            Management IP   VCS Status      
 ########################################################################################################################
 
 ```
-# config command
+**config command example:**
 ```
 Please select which type of commands you want to execute:
 
